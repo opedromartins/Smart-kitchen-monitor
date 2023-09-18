@@ -33,5 +33,20 @@ async function fetchSensorData() {
     }
 }
 
+// Function to fetch and update the person count
+async function fetchAndUpdatePersonCount() {
+    try {
+        const response = await fetch('http://127.0.0.1:5001/person_count');
+        const data = await response.json();
+        const count = data.person_count;
+        document.getElementById("person-count").querySelector(".value").textContent = count;
+    } catch (error) {
+        console.error("Could not fetch person count:", error);
+    }
+}
+
 // Update the progress circles with real-time sensor data
 setInterval(fetchSensorData, 1000);
+
+// Update the person count every second
+setInterval(fetchAndUpdatePersonCount, 1000);
