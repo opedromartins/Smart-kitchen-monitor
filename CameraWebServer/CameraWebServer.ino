@@ -33,11 +33,10 @@
 //#define CAMERA_MODEL_DFRobot_Romeo_ESP32S3 // Has PSRAM
 #include "camera_pins.h"
 
-// ===========================
-// Enter your WiFi credentials
-// ===========================
-const char* ssid = ssid;
-const char* password = password;
+// ============================================
+// Enter your WiFi credentials on credentials.h
+// ============================================
+
 
 void startCameraServer();
 void setupLedFlash(int pin);
