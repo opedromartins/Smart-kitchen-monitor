@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Smart Kitchen Monitoring
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Monitoramento de Cozinha Inteligente
+   </h1>
+  </header>
+  <div class="container">
+   <div class="sensor-cards-container">
+    <div class="sensor-card" id="temperature">
+     <h2>
+      Temperatura
+     </h2>
+     <div class="progress-circle">
+      <svg class="circle-svg">
+       <circle class="bg" cx="50%" cy="50%" r="45%">
+       </circle>
+       <circle class="progress" cx="50%" cy="50%" r="45%">
+       </circle>
+      </svg>
+      <span class="value">
+       0°C
+      </span>
+     </div>
+    </div>
+    <div class="sensor-card" id="pressure">
+     <h2>
+      Pressão
+     </h2>
+     <div class="progress-circle">
+      <svg class="circle-svg">
+       <circle class="bg" cx="50%" cy="50%" r="45%">
+       </circle>
+       <circle class="progress" cx="50%" cy="50%" r="45%">
+       </circle>
+      </svg>
+      <span class="value">
+       0hPa
+      </span>
+     </div>
+    </div>
+    <div class="sensor-card" id="altitude">
+     <h2>
+      Altitude
+     </h2>
+     <div class="progress-circle">
+      <svg class="circle-svg">
+       <circle class="bg" cx="50%" cy="50%" r="45%">
+       </circle>
+       <circle class="progress" cx="50%" cy="50%" r="45%">
+       </circle>
+      </svg>
+      <span class="value">
+       0m
+      </span>
+     </div>
+    </div>
+    <div class="sensor-card" id="humidity">
+     <h2>
+      Humidade
+     </h2>
+     <div class="progress-circle">
+      <svg class="circle-svg">
+       <circle class="bg" cx="50%" cy="50%" r="45%">
+       </circle>
+       <circle class="progress" cx="50%" cy="50%" r="45%">
+       </circle>
+      </svg>
+      <span class="value">
+       0%
+      </span>
+     </div>
+    </div>
+    <div class="sensor-card" id="mq135">
+     <h2>
+      MQ135
+     </h2>
+     <div class="progress-circle">
+      <svg class="circle-svg">
+       <circle class="bg" cx="50%" cy="50%" r="45%">
+       </circle>
+       <circle class="progress" cx="50%" cy="50%" r="45%">
+       </circle>
+      </svg>
+      <span class="value">
+       0
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="camera-sensor-card" id="camera-stream">
+    <h2>
+     Câmera
+    </h2>
+    <div class="camera-container">
+     <img alt="Camera Stream" class="camera-feed" src="http://192.168.137.45:81/stream"/>
+    </div>
+   </div>
+  </div>
+  <script src="script.js">
+  </script>
+ </body>
+</html>

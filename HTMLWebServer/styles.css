@@ -1,0 +1,172 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    margin: 20px;
+}
+
+.sensor {
+    display: inline-block;
+    margin: 20px;
+}
+
+.progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.circle-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.bg {
+    stroke: #ddd;
+    stroke-width: 10;
+    fill: none;
+}
+
+.progress {
+    stroke: blue;
+    stroke-width: 10;
+    stroke-dasharray: 0 1000;
+    fill: none;
+}
+
+.value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Styles for Camera Stream */
+.camera-container {
+    width: 640px;
+    height: 480px;
+    margin: auto;
+}
+
+.camera-feed {
+    width: 100%;
+    height: 100%;
+}
+
+/* Reset some default styles in browsers */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Add a background color to the whole page */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* Container for the dashboard */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 16px;
+}
+
+/* Style each sensor card */
+.sensor-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Final fix for 2x3 grid layout for sensor cards */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1px;  /* Reduce gap between cards */
+    margin-top: 2px;
+    justify-items: center;  /* Center items horizontally */
+}
+
+.sensor-card {
+    width: 180px;  /* Fixed width */
+    height: 180px;  /* Fixed height */
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera-sensor-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 1280px;  /* Fixed width */
+    height: 600px;  /* Fixed height */
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Updated Mobile-first design */
+.sensor-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+    justify-items: center;
+    margin-bottom: 20px;
+}
+.camera-sensor-card {
+    margin-top: 20px;
+}
+
+/* Updated PC layout */
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .sensor-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .camera-sensor-card {
+        width: calc(100% - 480px); /* Calculated based on card width, gaps, and margins */
+    }
+}
