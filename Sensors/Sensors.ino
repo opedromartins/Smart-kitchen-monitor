@@ -8,13 +8,10 @@
 
 #include "credentials.h"
 
-const char *ssid = ssid;
-const char *password = password;
-
 WebServer server(80);
 
 // Sensor data variables
-float temperature, pressure, altitude, humidity;
+float temperature, pressure, humidity;
 double CO2 = 0;
 
 void setupWiFi() {
@@ -37,7 +34,6 @@ void handleRoot() {
   String json = "{";
   json += "\"temperature\": " + String(temperature);
   json += ", \"pressure\": " + String(pressure);
-  json += ", \"altitude\": " + String(altitude);
   json += ", \"humidity\": " + String(humidity);
   json += ", \"mq135\": " + String(CO2);
   json += "}";
@@ -100,7 +96,6 @@ void loop() {
   // Read BME280 values
   temperature = bme.readTemperature();
   pressure = bme.readPressure() / 100.0F;
-  altitude = bme.readAltitude(1013.25);
   humidity = bme.readHumidity();
 
   // Read MQ135 values
@@ -117,10 +112,6 @@ void loop() {
   Serial.print("Pressure = ");
   Serial.print(pressure);
   Serial.println(" hPa");
-
-  Serial.print("Altitude = ");
-  Serial.print(altitude);
-  Serial.println(" m");
 
   Serial.print("Humidity = ");
   Serial.print(humidity);

@@ -1,6 +1,5 @@
 // Initialize Chart.js variables
 const ctxCO2 = document.getElementById("co2Chart").getContext("2d");
-const ctxAltitude = document.getElementById("altitudeChart").getContext("2d");
 const ctxTemperature = document.getElementById("temperatureChart").getContext("2d");
 const ctxHumidity = document.getElementById("humidityChart").getContext("2d");
 
@@ -19,10 +18,6 @@ const co2Data = JSON.parse(JSON.stringify(dataTemplate));
 co2Data.datasets[0].pointRadius = 1;
 co2Data.datasets[0].pointHitRadius = 0;
 
-const altitudeData = JSON.parse(JSON.stringify(dataTemplate));
-altitudeData.datasets[0].pointRadius = 1;
-altitudeData.datasets[0].pointHitRadius = 0;
-
 const temperatureData = JSON.parse(JSON.stringify(dataTemplate));
 temperatureData.datasets[0].pointRadius = 1;
 temperatureData.datasets[0].pointHitRadius = 0;
@@ -32,7 +27,6 @@ humidityData.datasets[0].pointRadius = 1;
 humidityData.datasets[0].pointHitRadius = 0;
 
 co2Data.datasets[0].label = "CO2";
-altitudeData.datasets[0].label = "Altitude";
 temperatureData.datasets[0].label = "Temperature";
 humidityData.datasets[0].label = "Humidity";
 
@@ -41,10 +35,6 @@ const co2Chart = new Chart(ctxCO2, { options: { scales: { y: { min: 0, max: 100 
     data: co2Data,
 });
 
-const altitudeChart = new Chart(ctxAltitude, { options: { scales: { y: { min: 0, max: 1000 } } },
-    type: "line",
-    data: altitudeData,
-});
 
 const temperatureChart = new Chart(ctxTemperature, { options: { scales: { y: { min: 0, max: 100 } } },
     type: "line",
@@ -68,11 +58,6 @@ const fetchDataAndUpdateCharts = async () => {
         co2Data.labels.push(now);
         co2Data.datasets[0].data.push(data.mq135);
         co2Chart.update();
-
-        // Update Altitude Chart
-        altitudeData.labels.push(now);
-        altitudeData.datasets[0].data.push(data.altitude);
-        altitudeChart.update();
 
         // Update Temperature Chart
         temperatureData.labels.push(now);
