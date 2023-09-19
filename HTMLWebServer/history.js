@@ -30,7 +30,7 @@ co2Data.datasets[0].label = "CO2";
 temperatureData.datasets[0].label = "Temperature";
 humidityData.datasets[0].label = "Humidity";
 
-const co2Chart = new Chart(ctxCO2, { options: { scales: { y: { min: 0, max: 100 } } },
+const co2Chart = new Chart(ctxCO2, { options: { scales: { y: { min: 0, max: 1000 } } },
     type: "line",
     data: co2Data,
 });
@@ -56,7 +56,7 @@ const fetchDataAndUpdateCharts = async () => {
 
         // Update CO2 Chart
         co2Data.labels.push(now);
-        co2Data.datasets[0].data.push(data.mq135);
+        co2Data.datasets[0].data.push(data.co2);
         co2Chart.update();
 
         // Update Temperature Chart

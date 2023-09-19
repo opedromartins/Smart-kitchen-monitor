@@ -35,7 +35,7 @@ void handleRoot() {
   json += "\"temperature\": " + String(temperature);
   json += ", \"pressure\": " + String(pressure);
   json += ", \"humidity\": " + String(humidity);
-  json += ", \"mq135\": " + String(CO2);
+  json += ", \"co2\": " + String(CO2);
   json += "}";
   
   server.send(200, "application/json", json);
@@ -102,7 +102,14 @@ void loop() {
   MQ135.update();
   MQ135.setA(110.47);
   MQ135.setB(-2.862);
-  CO2 = MQ135.readSensor();
+  CO2 = MQ135.readSensor() + 400;
+  /*
+  Motivation:
+  We have added 400 PPM because when the library is calibrated it assumes the current state of the
+  air as 0 PPM, and it is considered today that the CO2 present in the atmosphere is around 400 PPM.
+  https://www.lavanguardia.com/natural/20190514/462242832581/concentracion-dioxido-cabono-co2-atmosfera-bate-record-historia-humanidad.html
+  (Motivation came from https://github.com/miguel5612/MQSensorsLib/blob/master/examples/MQ-135-ALL/MQ-135-ALL.ino)
+  */
 
   // Print values (or whatever you need to do)
   Serial.print("Temperature = ");

@@ -81,7 +81,7 @@ async function fetchSensorData() {
         updateProgress('temperature', data.temperature, "°C", 50);
         updateProgress('pressure', data.pressure, " hPa", 1100);
         updateProgress('humidity', data.humidity, " %", 100);
-        updateProgress('mq135', data.mq135, "", 100); // Handle NaN in updateProgress function
+        updateProgress('co2', data.co2, "", 1000); // Handle NaN in updateProgress function
     } catch (error) {
         console.error('Error fetching sensor data:', error);
     }
