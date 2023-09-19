@@ -11,7 +11,62 @@ function updateProgress(sensorId, value, unit, max) {
     const circumference = 2 * Math.PI * 45;
     const offset = circumference - ((value / max) * circumference);
 
+    
     circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    
+    // Update color based on value ranges
+    if (sensorId === 'temperature') {
+        if (value >= 20 && value <= 35) {
+            circle.classList.remove("progress-yellow", "progress-red");
+            circle.classList.add("progress-green");
+        } else if ((value >= 10 && value < 20) || (value > 35 && value <= 45)) {
+            circle.classList.remove("progress-green", "progress-red");
+            circle.classList.add("progress-yellow");
+        } else {
+            circle.classList.remove("progress-green", "progress-yellow");
+            circle.classList.add("progress-red");
+        }
+    }
+    
+    if (sensorId === 'pressure') {
+        if (value >= 990 && value <= 1013) {
+            circle.classList.remove("progress-yellow", "progress-red");
+            circle.classList.add("progress-green");
+        } else if (value > 1013 && value <= 1020) {
+            circle.classList.remove("progress-green", "progress-red");
+            circle.classList.add("progress-yellow");
+        } else {
+            circle.classList.remove("progress-green", "progress-yellow");
+            circle.classList.add("progress-red");
+        }
+    }
+    
+    if (sensorId === 'humidity') {
+        if ((value >= 20 && value < 30) || (value > 50 && value <= 65)) {
+            circle.classList.remove("progress-green", "progress-red");
+            circle.classList.add("progress-yellow");
+        } else if (value >= 30 && value <= 50) {
+            circle.classList.remove("progress-yellow", "progress-red");
+            circle.classList.add("progress-green");
+        } else {
+            circle.classList.remove("progress-green", "progress-yellow");
+            circle.classList.add("progress-red");
+        }
+    }    
+    
+    if (sensorId === 'co2') {
+        if (value >= 350 && value <= 1000) {
+            circle.classList.remove("progress-yellow", "progress-red");
+            circle.classList.add("progress-green");
+        } else if (value > 1000 && value <= 2000) {
+            circle.classList.remove("progress-green", "progress-red");
+            circle.classList.add("progress-yellow");
+        } else {
+            circle.classList.remove("progress-green", "progress-yellow");
+            circle.classList.add("progress-red");
+        }
+    }
+    
     circle.style.strokeDashoffset = offset;
 
     valueSpan.innerText = isNaN(value) ? 'N/A' : value + unit;

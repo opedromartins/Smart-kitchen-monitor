@@ -170,3 +170,16 @@ footer {
         width: calc(100% - 480px); /* Calculated based on card width, gaps, and margins */
     }
 }
+
+/* Additional CSS for color-coded progress circles */
+.progress-green {
+    stroke: green;
+}
+
+.progress-yellow {
+    stroke: yellow;
+}
+
+.progress-red {
+    stroke: red;
+}
