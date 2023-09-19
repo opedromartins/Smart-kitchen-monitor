@@ -13,6 +13,7 @@ WebServer server(80);
 // Sensor data variables
 float temperature, pressure, humidity;
 double CO2 = 0;
+double CO = 0;
 
 void setupWiFi() {
   Serial.println("Setting up WiFi...");
@@ -36,6 +37,7 @@ void handleRoot() {
   json += ", \"pressure\": " + String(pressure);
   json += ", \"humidity\": " + String(humidity);
   json += ", \"co2\": " + String(CO2);
+  json += ", \"co\": " + String(CO);
   json += "}";
   
   server.send(200, "application/json", json);
@@ -100,16 +102,17 @@ void loop() {
 
   // Read MQ135 values
   MQ135.update();
-  MQ135.setA(110.47);
-  MQ135.setB(-2.862);
-  CO2 = MQ135.readSensor() + 400;
-  /*
-  Motivation:
+
+  MQ135.setA(110.47); MQ135.setB(-2.862); // Configure the equation to calculate CO2 concentration value
+  CO2 = MQ135.readSensor() + 400; // Sensor will read PPM concentration using the model, a and b values set previously or from the setup
+  /* Motivation:
   We have added 400 PPM because when the library is calibrated it assumes the current state of the
   air as 0 PPM, and it is considered today that the CO2 present in the atmosphere is around 400 PPM.
   https://www.lavanguardia.com/natural/20190514/462242832581/concentracion-dioxido-cabono-co2-atmosfera-bate-record-historia-humanidad.html
-  (Motivation came from https://github.com/miguel5612/MQSensorsLib/blob/master/examples/MQ-135-ALL/MQ-135-ALL.ino)
-  */
+  (Motivation came from https://github.com/miguel5612/MQSensorsLib/blob/master/examples/MQ-135-ALL/MQ-135-ALL.ino) */
+
+  MQ135.setA(605.18); MQ135.setB(-3.937); // Configure the equation to calculate CO concentration value
+  CO = MQ135.readSensor(); // Sensor will read PPM concentration using the model, a and b values set previously or from the setup
 
   // Print values (or whatever you need to do)
   Serial.print("Temperature = ");
@@ -126,6 +129,10 @@ void loop() {
 
   Serial.print("CO2 = ");
   Serial.print(CO2);
+  Serial.println(" ppm");
+
+  Serial.print("CO = ");
+  Serial.print(CO);
   Serial.println(" ppm");
 
   delay(1000);

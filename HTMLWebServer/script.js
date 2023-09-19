@@ -66,6 +66,19 @@ function updateProgress(sensorId, value, unit, max) {
             circle.classList.add("progress-red");
         }
     }
+
+    if (sensorId === 'co') {
+        if (value <= 50) {
+            circle.classList.remove("progress-yellow", "progress-red");
+            circle.classList.add("progress-green");
+        } else if (value > 50 && value <= 100) {
+            circle.classList.remove("progress-green", "progress-red");
+            circle.classList.add("progress-yellow");
+        } else {
+            circle.classList.remove("progress-green", "progress-yellow");
+            circle.classList.add("progress-red");
+        }
+    }
     
     circle.style.strokeDashoffset = offset;
 
@@ -82,6 +95,7 @@ async function fetchSensorData() {
         updateProgress('pressure', data.pressure, " hPa", 1100);
         updateProgress('humidity', data.humidity, " %", 100);
         updateProgress('co2', data.co2, "", 1000); // Handle NaN in updateProgress function
+        updateProgress('co', data.co, "", 100);
     } catch (error) {
         console.error('Error fetching sensor data:', error);
     }
