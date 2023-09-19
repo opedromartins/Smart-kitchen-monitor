@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico dos Sensores</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .chart-container {
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+        }
+        main {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Monitoramento de Cozinha Inteligente - Histórico</h1>
+        <a href="iot_sensor_monitoring.html">Dashboard</a>
+    </header>
+    <main>
+        <div class="chart-container">
+            <canvas id="co2Chart" width="300" height="300"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="altitudeChart" width="300" height="300"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="temperatureChart" width="300" height="300"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="humidityChart" width="300" height="300"></canvas>
+        </div>
+    </main>
+    <script src="history.js"></script>
+</body>
+</html>
