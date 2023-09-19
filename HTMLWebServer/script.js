@@ -29,10 +29,10 @@ function updateProgress(sensorId, value, unit, max) {
     }
     
     if (sensorId === 'pressure') {
-        if (value >= 990 && value <= 1013) {
+        if (value >= 900 && value <= 1100) {
             circle.classList.remove("progress-yellow", "progress-red");
             circle.classList.add("progress-green");
-        } else if (value > 1013 && value <= 1020) {
+        } else if (value > 1100 && value <= 1200) {
             circle.classList.remove("progress-green", "progress-red");
             circle.classList.add("progress-yellow");
         } else {
