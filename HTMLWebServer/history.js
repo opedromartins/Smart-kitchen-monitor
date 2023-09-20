@@ -33,8 +33,8 @@ humidityData.datasets[0].pointHitRadius = 0;
 
 co2Data.datasets[0].label = "CO2";
 coData.datasets[0].label = "CO";
-temperatureData.datasets[0].label = "Temperature";
-humidityData.datasets[0].label = "Humidity";
+temperatureData.datasets[0].label = "Temperatura";
+humidityData.datasets[0].label = "Umidade";
 
 const co2Chart = new Chart(ctxCO2, { options: { scales: { y: { min: 0, max: 1000 } } },
     type: "line",
