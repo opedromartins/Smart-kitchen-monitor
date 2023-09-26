@@ -12,6 +12,7 @@ This project aims to create a smart kitchen monitoring system using Arduino and 
 ## Images
 ![Dashboard](./images/Dashboard.png)
 ![Historico](./images/Historico.png)
+![Prototipo](./images/Prototipo.jpg)
 
 ## Structure
 - `CameraWebServer/`: Contains the code for the Camera Web Server.
