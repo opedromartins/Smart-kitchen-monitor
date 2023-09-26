@@ -9,6 +9,10 @@ This project aims to create a smart kitchen monitoring system using Arduino and 
 3. **Dashboard Web Server**: A dashboard for real-time monitoring of sensor data.
 4. **Vision Model**: Uses [YOLO](https://towardsdatascience.com/yolo-you-only-look-once-real-time-object-detection-explained-492dc9230006) object detection to count the number of people in the video stream.
 
+## Images
+![Dashboard](./images/Dashboard.png)
+![Historico](./images/Historico.png)
+
 ## Structure
 - `CameraWebServer/`: Contains the code for the Camera Web Server.
   - The default [ESP32-CAM example](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/Camera/CameraWebServer)
