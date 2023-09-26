@@ -88,7 +88,7 @@ function updateProgress(sensorId, value, unit, max) {
 // Function to fetch real-time sensor data from ESP32
 async function fetchSensorData() {
     try {
-        const response = await fetch('http://192.168.137.54/');
+        const response = await fetch('http://127.0.0.1:5001/data'); // YOUR DATA JSON URL HERE
         const data = await response.json();
         
         updateProgress('temperature', data.temperature, "°C", 50);
@@ -104,7 +104,7 @@ async function fetchSensorData() {
 // Function to fetch and update the person count
 async function fetchAndUpdatePersonCount() {
     try {
-        const response = await fetch('http://127.0.0.1:5001/person_count');
+        const response = await fetch('http://127.0.0.1:5001/person_count'); // YOUR PERSON COUNT JSON URL HERE
         const data = await response.json();
         const count = data.person_count;
         document.getElementById("person-count").querySelector(".value").textContent = count;

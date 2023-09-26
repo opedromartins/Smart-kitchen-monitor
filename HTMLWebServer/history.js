@@ -60,7 +60,7 @@ const humidityChart = new Chart(ctxHumidity, { options: { scales: { y: { min: 0,
 // Function to fetch sensor data and update the charts
 const fetchDataAndUpdateCharts = async () => {
     try {
-        const response = await fetch("http://192.168.137.54/");
+        const response = await fetch('http://127.0.0.1:5001/data'); // YOUR DATA JSON URL HERE
         const data = await response.json();
 
         const now = new Date().toLocaleTimeString();

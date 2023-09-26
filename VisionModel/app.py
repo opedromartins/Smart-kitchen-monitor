@@ -12,7 +12,7 @@ person_count = 0
 
 def generate_frames():
     global person_count  # Declare the variable as global so we can modify it
-    stream_url = "http://192.168.137.45:81/stream"
+    stream_url = "http://127.0.0.1:5001/stream" # YOUR STREAM URL HERE
     cap = cv2.VideoCapture(stream_url)
 
     while True:
